@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AltaUsuariosViewDlg" widgetVar="AltaUsuariosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewAltaUsuariosTitle}">
+            <h:form id="AltaUsuariosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{altaUsuariosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewAltaUsuariosLabel_usuario}"/>
+                        <h:outputText value="#{altaUsuariosController.selected.usuario}" title="#{bundle.ViewAltaUsuariosTitle_usuario}"/>
+                        <h:outputText value="#{bundle.ViewAltaUsuariosLabel_clave}"/>
+                        <h:outputText value="#{altaUsuariosController.selected.clave}" title="#{bundle.ViewAltaUsuariosTitle_clave}"/>
+                        <h:outputText value="#{bundle.ViewAltaUsuariosLabel_id}"/>
+                        <h:outputText value="#{altaUsuariosController.selected.id}" title="#{bundle.ViewAltaUsuariosTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewAltaUsuariosLabel_nombre}"/>
+                        <h:outputText value="#{altaUsuariosController.selected.nombre}" title="#{bundle.ViewAltaUsuariosTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewAltaUsuariosLabel_email}"/>
+                        <h:outputText value="#{altaUsuariosController.selected.email}" title="#{bundle.ViewAltaUsuariosTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewAltaUsuariosLabel_telefono}"/>
+                        <h:outputText value="#{altaUsuariosController.selected.telefono}" title="#{bundle.ViewAltaUsuariosTitle_telefono}"/>
+                        <h:outputText value="#{bundle.ViewAltaUsuariosLabel_alta}"/>
+                        <p:selectBooleanCheckbox value="#{altaUsuariosController.selected.alta}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewAltaUsuariosLabel_fechacreacion}"/>
+                        <h:outputText value="#{altaUsuariosController.selected.fechacreacion}" title="#{bundle.ViewAltaUsuariosTitle_fechacreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewAltaUsuariosLabel_fechamodificacion}"/>
+                        <h:outputText value="#{altaUsuariosController.selected.fechamodificacion}" title="#{bundle.ViewAltaUsuariosTitle_fechamodificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewAltaUsuariosLabel_clinumcl}"/>
+                        <h:outputText value="#{altaUsuariosController.selected.clinumcl}" title="#{bundle.ViewAltaUsuariosTitle_clinumcl}"/>
+                        <h:outputText value="#{bundle.ViewAltaUsuariosLabel_ultimoacceso}"/>
+                        <h:outputText value="#{altaUsuariosController.selected.ultimoacceso}" title="#{bundle.ViewAltaUsuariosTitle_ultimoacceso}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="AltaUsuariosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

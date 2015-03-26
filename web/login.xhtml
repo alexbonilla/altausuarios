@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>        
+        <title>login</title>        
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+    <h:body>
+        <h:form id="loginForm">          
+            <p:growl id="msg" showDetail="true" life="3000" />
+            <p:panel header="Alta de Usuarios: Ingreso" style="width: 250px; margin-left: auto; margin-right: auto">
+ 
+                <h:panelGrid id="loginPanel" columns="1">                     
+ 
+                    <p:inputText id="username" value="#{loginBean.uname}" placeholder="Usuario" ></p:inputText>                    
+ 
+                    <p:message for="username" ></p:message> 
+ 
+                    <p:password id="password" value="#{loginBean.password}"  feedback="false" placeholder="Clave"></p:password>
+ 
+                    <p:message for="password"></p:message>
+ 
+                    <p:commandButton action="#{loginBean.login}" value="Ingresar" update="loginForm" ajax="true"></p:commandButton>
+ 
+                </h:panelGrid>
+ 
+            </p:panel>
+ 
+        </h:form>
+ 
+    </h:body> 
+ 
+</html>

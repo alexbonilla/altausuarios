@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AltaUsuariosEditDlg" widgetVar="AltaUsuariosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditAltaUsuariosTitle}">
+            <h:form id="AltaUsuariosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{altaUsuariosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditAltaUsuariosLabel_usuario}" for="usuario" />
+                        <p:inputText id="usuario" value="#{altaUsuariosController.selected.usuario}" title="#{bundle.EditAltaUsuariosTitle_usuario}" required="true" requiredMessage="#{bundle.EditAltaUsuariosRequiredMessage_usuario}"/>
+                        <p:outputLabel value="#{bundle.EditAltaUsuariosLabel_clave}" for="clave" />
+                        <p:inputText id="clave" value="#{altaUsuariosController.selected.clave}" title="#{bundle.EditAltaUsuariosTitle_clave}" />
+                        <p:outputLabel value="#{bundle.EditAltaUsuariosLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{altaUsuariosController.selected.id}" title="#{bundle.EditAltaUsuariosTitle_id}" />
+                        <p:outputLabel value="#{bundle.EditAltaUsuariosLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{altaUsuariosController.selected.nombre}" title="#{bundle.EditAltaUsuariosTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.EditAltaUsuariosLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{altaUsuariosController.selected.email}" title="#{bundle.EditAltaUsuariosTitle_email}" />
+                        <p:outputLabel value="#{bundle.EditAltaUsuariosLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{altaUsuariosController.selected.telefono}" title="#{bundle.EditAltaUsuariosTitle_telefono}" />
+                        <p:outputLabel value="#{bundle.EditAltaUsuariosLabel_alta}" for="alta" />
+                        <p:selectBooleanCheckbox id="alta" value="#{altaUsuariosController.selected.alta}" />
+                        <p:outputLabel value="#{bundle.EditAltaUsuariosLabel_fechacreacion}" for="fechacreacion" />
+                        <p:calendar id="fechacreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{altaUsuariosController.selected.fechacreacion}" title="#{bundle.EditAltaUsuariosTitle_fechacreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditAltaUsuariosLabel_fechamodificacion}" for="fechamodificacion" />
+                        <p:calendar id="fechamodificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{altaUsuariosController.selected.fechamodificacion}" title="#{bundle.EditAltaUsuariosTitle_fechamodificacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditAltaUsuariosLabel_clinumcl}" for="clinumcl" />
+                        <p:inputText id="clinumcl" value="#{altaUsuariosController.selected.clinumcl}" title="#{bundle.EditAltaUsuariosTitle_clinumcl}" />
+                        <p:outputLabel value="#{bundle.EditAltaUsuariosLabel_ultimoacceso}" for="ultimoacceso" />
+                        <p:calendar id="ultimoacceso" pattern="MM/dd/yyyy HH:mm:ss" value="#{altaUsuariosController.selected.ultimoacceso}" title="#{bundle.EditAltaUsuariosTitle_ultimoacceso}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{altaUsuariosController.update}" value="#{bundle.Save}" update="display,:AltaUsuariosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AltaUsuariosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AltaUsuariosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

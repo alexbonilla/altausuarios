@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/user-template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAltaUsuariosTitle}"></h:outputText>
+        </ui:define>
+        
+        <ui:define name="body">
+            <h:form id="AltaUsuariosCreateForm"> 
+                <h:messages errorClass="errorMessage" infoClass="infoMessage" warnClass="warnMessage"></h:messages>
+                <h:panelGroup id="display">                                                            
+                    <p:panelGrid id="newUserEditGrid" columns="2" >                        
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_usuario}" for="usuario" />
+                        <p:inputText id="usuario" value="#{newUserBean.usuario}" title="#{bundle.CreateAltaUsuariosTitle_usuario}" required="true" requiredMessage="#{bundle.CreateAltaUsuariosRequiredMessage_usuario}"/>
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_clave}" for="clave" />
+                        <p:inputText id="clave" value="#{newUserBean.clave}" title="#{bundle.CreateAltaUsuariosTitle_clave}" required="true"/>
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{newUserBean.id}" title="#{bundle.CreateAltaUsuariosTitle_id}" required="true"/>
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{newUserBean.nombre}" title="#{bundle.CreateAltaUsuariosTitle_nombre}" required="true"/>
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{newUserBean.email}" title="#{bundle.CreateAltaUsuariosTitle_email}" required="true"/>
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{newUserBean.telefono}" title="#{bundle.CreateAltaUsuariosTitle_telefono}" required="true"/>                        
+                    </p:panelGrid>                    
+                    <h:commandButton type="submit" value="Solicitar Alta" action="#{newUserBean.create}"></h:commandButton>
+                    <h:commandButton type="reset" value="Borrar campos"></h:commandButton> 
+                </h:panelGroup>                
+            </h:form>            
+        </ui:define>
+    </ui:composition>
+
+</html>

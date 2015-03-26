@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AltaUsuariosCreateDlg" widgetVar="AltaUsuariosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateAltaUsuariosTitle}">
+            <h:form id="AltaUsuariosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{altaUsuariosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_usuario}" for="usuario" />
+                        <p:inputText id="usuario" value="#{altaUsuariosController.selected.usuario}" title="#{bundle.CreateAltaUsuariosTitle_usuario}" required="true" requiredMessage="#{bundle.CreateAltaUsuariosRequiredMessage_usuario}"/>
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_clave}" for="clave" />
+                        <p:inputText id="clave" value="#{altaUsuariosController.selected.clave}" title="#{bundle.CreateAltaUsuariosTitle_clave}" />
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{altaUsuariosController.selected.id}" title="#{bundle.CreateAltaUsuariosTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{altaUsuariosController.selected.nombre}" title="#{bundle.CreateAltaUsuariosTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{altaUsuariosController.selected.email}" title="#{bundle.CreateAltaUsuariosTitle_email}" />
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{altaUsuariosController.selected.telefono}" title="#{bundle.CreateAltaUsuariosTitle_telefono}" />
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_alta}" for="alta" />
+                        <p:selectBooleanCheckbox id="alta" value="#{altaUsuariosController.selected.alta}" />
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_fechacreacion}" for="fechacreacion" />
+                        <p:calendar id="fechacreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{altaUsuariosController.selected.fechacreacion}" title="#{bundle.EditAltaUsuariosTitle_fechacreacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_fechamodificacion}" for="fechamodificacion" />
+                        <p:calendar id="fechamodificacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{altaUsuariosController.selected.fechamodificacion}" title="#{bundle.EditAltaUsuariosTitle_fechamodificacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_clinumcl}" for="clinumcl" />
+                        <p:inputText id="clinumcl" value="#{altaUsuariosController.selected.clinumcl}" title="#{bundle.CreateAltaUsuariosTitle_clinumcl}" />
+                        <p:outputLabel value="#{bundle.CreateAltaUsuariosLabel_ultimoacceso}" for="ultimoacceso" />
+                        <p:calendar id="ultimoacceso" pattern="MM/dd/yyyy HH:mm:ss" value="#{altaUsuariosController.selected.ultimoacceso}" title="#{bundle.EditAltaUsuariosTitle_ultimoacceso}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{altaUsuariosController.create}" value="#{bundle.Save}" update="display,:AltaUsuariosListForm:datalist,:growl" oncomplete="handleSubmit(args,'AltaUsuariosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AltaUsuariosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
